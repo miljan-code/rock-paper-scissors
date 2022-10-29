@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  position: relative;
+
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 1.6rem;
+
+  min-height: 100vh;
+  padding-top: 4rem;
+
+  background: radial-gradient(
+    ellipse at top,
+    rgb(31, 55, 86),
+    hsl(237, 49%, 15%)
+  );
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0 auto;
+  width: 60rem;
+  padding: 1.25rem 1.75rem 1.25rem 2.5rem;
+
+  border-radius: 11px;
+  border: 2px solid hsl(217, 16%, 45%);
+}
+
+.logo {
+  color: #fff;
+  line-height: 0.8;
+  text-transform: uppercase;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  padding: 0.5rem 4rem;
+  border-radius: 7px;
+}
+
+.score-title {
+  color: hsl(229, 64%, 46%);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: translateY(0.4rem);
+}
+
+.score-counter {
+  display: block;
+  color: hsl(217, 16%, 45%);
+  font-size: 5.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.rules {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  background-color: transparent;
+  padding: 1rem 4rem;
+  border: 1px solid #fff;
+  border-radius: 11px;
+
+  cursor: pointer;
+}
+
+/* Refactoring Line */
+
+.game-container {
+  padding-top: 17.5rem;
+}
+
+.triangle {
+  position: relative;
+  margin: 0 auto;
+  width: 51rem;
+  height: 45rem;
+
+  background-image: url('../images/bg-triangle.svg');
+  background-size: cover;
+}
+
+.element {
+  position: relative;
+  cursor: pointer;
+
+  width: 20rem;
+  height: 20rem;
+  border-radius: 25rem;
+  z-index: 99;
+}
+
+.element--paper,
+.element--scissors,
+.element--rock {
+  z-index: 99;
+  transform-style: preserve-3d;
+}
+
+.element--paper {
+  transform: translate(-30%, -30%);
+
+  background: linear-gradient(
+    to bottom,
+    hsl(230, 89%, 62%),
+    hsl(230, 89%, 65%)
+  );
+}
+
+.element--paper::before,
+.element--scissors::before,
+.element--rock::before {
+  content: '';
+  display: block;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 25rem;
+  transform: translateZ(-1px) translateY(4%);
+}
+
+.element--paper::before {
+  background-color: hsl(230, 56%, 43%);
+}
+
+.element--paper::after,
+.element--scissors::after,
+.element--rock::after {
+  content: '';
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%);
+
+  display: block;
+  background-color: #fff;
+  width: 16.5rem;
+  height: 16.5rem;
+  border-radius: 25rem;
+  box-shadow: 0 -0.6rem 0rem 0.1rem #ccc;
+}
+
+.paper,
+.scissors,
+.rock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: block;
+  width: 9rem;
+  height: 9rem;
+  z-index: 99;
+}
+
+.element--scissors {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(30%, -30%);
+
+  background: linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+
+.element--scissors::before {
+  background-color: hsl(39, 87%, 35%);
+}
+
+.element--rock {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%, 10%);
+
+  background: linear-gradient(
+    to bottom,
+    hsl(349, 71%, 52%),
+    hsl(349, 70%, 56%)
+  );
+}
+
+.element--rock::before {
+  background-color: hsl(349, 65%, 40%);
+}
