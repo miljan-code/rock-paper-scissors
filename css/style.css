@@ -19,10 +19,14 @@ body {
 
   background: radial-gradient(
     ellipse at top,
-    rgb(31, 55, 86),
+    hsl(214, 47%, 23%),
     hsl(237, 49%, 15%)
   );
 }
+
+/* ********
+   HEADER
+******** */
 
 .header {
   display: flex;
@@ -68,7 +72,11 @@ body {
   text-align: center;
 }
 
-.rules {
+/* ********
+ RULES BTN
+******** */
+
+.btn {
   position: absolute;
   bottom: 3rem;
   right: 3rem;
@@ -76,7 +84,7 @@ body {
   color: #fff;
   font-family: inherit;
   font-size: 1.6rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
 
@@ -88,7 +96,14 @@ body {
   cursor: pointer;
 }
 
-.game-container {
+/* ********
+GAME PHASE 1
+******** */
+.game--phase1 {
+  display: block;
+}
+
+.game {
   padding-top: 17.5rem;
 }
 
@@ -203,5 +218,121 @@ body {
   display: block;
   width: 9rem;
   height: 9rem;
+  z-index: 99;
+}
+
+/* ********
+RULES MODAL
+******** */
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* display: flex; */
+  flex-direction: column;
+  gap: 6rem;
+
+  padding: 3rem;
+  width: 40rem;
+  height: 43rem;
+  border-radius: 11px;
+  background-color: #fff;
+
+  z-index: 999;
+  display: none;
+}
+
+.modal-active {
+  display: flex;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  color: hsl(229, 25%, 31%);
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.modal-close {
+  cursor: pointer;
+}
+
+.modal-img {
+  width: 90%;
+  align-self: center;
+}
+
+.modal-overlay {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* **********
+GAME PHASE 2
+*********** */
+.game--phase2 {
+  display: none;
+  width: 40rem;
+  height: 30rem;
+  margin: 0 auto;
+  /* transform: scale(1.3); */
+}
+
+.phase2-title-box,
+.phase2-element-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phase2-title-box {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.my-pick {
+  transform: translate(-50%, -100%);
+}
+
+.computer-pick {
+  transform: translate(50%, -100%);
+}
+
+.game--phase2 .element--paper,
+.game--phase2 .element--scissors,
+.game--phase2 .element--rock {
+  position: relative;
+  transform: translate(0, 0);
+}
+
+.phase2-element-box .element:first-child {
+  left: 0;
+  transform: translate(-50%, 30%) scale(1.3);
+}
+
+.phase2-element-box .element:last-child {
+  display: none;
+  right: 0;
+  transform: translate(50%, 30%) scale(1.3);
+  /* Prvo stavi scale na 1 pa naraste na 1.3 animacija */
+}
+
+.element--placeholder {
+  width: 20rem;
+  height: 20rem;
+  background-color: hsl(229, 35%, 18%);
+  border-radius: 25rem;
+  transform: translate(50%, 30%);
   z-index: 99;
 }

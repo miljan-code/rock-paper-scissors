@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -17,7 +17,7 @@
     <title>Rock, Paper, Scissors</title>
   </head>
   <body>
-    <div class="game">
+    <div class="game-container">
       <div class="header">
         <h1 class="logo">Rock<br />Paper<br />Scissors</h1>
         <div class="score">
@@ -26,21 +26,47 @@
         </div>
       </div>
 
-      <div class="game-container">
+      <div class="game game--phase1">
         <div class="triangle">
+          <div data-pick="paper" class="element element--paper">
+            <img src="images/icon-paper.svg" class="paper" />
+          </div>
+          <div data-pick="scissors" class="element element--scissors">
+            <img src="images/icon-scissors.svg" class="scissors" />
+          </div>
+          <div data-pick="rock" class="element element--rock">
+            <img src="images/icon-rock.svg" class="rock" />
+          </div>
+        </div>
+      </div>
+
+      <div class="game game--phase2">
+        <div class="phase2-title-box">
+          <p class="my-pick">You Picked</p>
+          <p class="computer-pick">The House picked</p>
+        </div>
+        <div class="phase2-element-box">
           <div class="element element--paper">
             <img src="images/icon-paper.svg" class="paper" />
           </div>
-          <div class="element element--scissors">
-            <img src="images/icon-scissors.svg" class="scissors" />
-          </div>
+          <div class="element--placeholder"></div>
           <div class="element element--rock">
             <img src="images/icon-rock.svg" class="rock" />
           </div>
         </div>
       </div>
 
-      <button class="rules">Rules</button>
+      <button class="btn">Rules</button>
+    </div>
+    
+
+    </div>
+    <div class="modal">
+      <div class="modal-header">
+        <p class="modal-title">Rules</p>
+        <img src="images/icon-close.svg" class="modal-close" />
+      </div>
+      <img src="images/image-rules.svg" class="modal-img" />
     </div>
   </body>
 </html>
