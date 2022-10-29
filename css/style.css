@@ -88,8 +88,6 @@ body {
   cursor: pointer;
 }
 
-/* Refactoring Line */
-
 .game-container {
   padding-top: 17.5rem;
 }
@@ -131,6 +129,28 @@ body {
   );
 }
 
+.element--scissors {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(30%, -30%);
+
+  background: linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+
+.element--rock {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%, 10%);
+
+  background: linear-gradient(
+    to bottom,
+    hsl(349, 71%, 52%),
+    hsl(349, 70%, 56%)
+  );
+}
+
 .element--paper::before,
 .element--scissors::before,
 .element--rock::before {
@@ -144,6 +164,14 @@ body {
 
 .element--paper::before {
   background-color: hsl(230, 56%, 43%);
+}
+
+.element--scissors::before {
+  background-color: hsl(39, 87%, 35%);
+}
+
+.element--rock::before {
+  background-color: hsl(349, 65%, 40%);
 }
 
 .element--paper::after,
@@ -176,34 +204,4 @@ body {
   width: 9rem;
   height: 9rem;
   z-index: 99;
-}
-
-.element--scissors {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(30%, -30%);
-
-  background: linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-}
-
-.element--scissors::before {
-  background-color: hsl(39, 87%, 35%);
-}
-
-.element--rock {
-  position: absolute;
-  bottom: 0;
-  right: 50%;
-  transform: translate(50%, 10%);
-
-  background: linear-gradient(
-    to bottom,
-    hsl(349, 71%, 52%),
-    hsl(349, 70%, 56%)
-  );
-}
-
-.element--rock::before {
-  background-color: hsl(349, 65%, 40%);
 }
