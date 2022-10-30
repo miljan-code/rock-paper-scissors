@@ -62,6 +62,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   transform: translateY(0.4rem);
+  text-align: center;
 }
 
 .score-counter {
@@ -75,25 +76,28 @@ body {
 /* ********
  RULES BTN
 ******** */
-
 .btn {
-  position: absolute;
-  bottom: 3rem;
-  right: 3rem;
-
-  color: #fff;
   font-family: inherit;
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
 
-  background-color: transparent;
   padding: 1rem 4rem;
-  border: 1px solid #fff;
   border-radius: 11px;
 
   cursor: pointer;
+}
+
+.btn--modal {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+
+  color: #fff;
+
+  background-color: transparent;
+  border: 1px solid #fff;
 }
 
 /* ********
@@ -294,6 +298,7 @@ GAME PHASE 2
   width: 40rem;
   height: 30rem;
   margin: 0 auto;
+  transition: width 0.3s;
 }
 
 .phase2-title-box,
@@ -357,6 +362,37 @@ GAME PHASE 2
 
   animation: rotate360 1s infinite;
 }
+
+.play-again-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transform: translateY(4rem);
+}
+
+.play-again-title {
+  color: #fff;
+  font-size: 6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn--again {
+  color: hsl(229, 64%, 46%);
+  padding: 1.5rem 4rem;
+  width: 120%;
+  border: none;
+  transition: color 0.3s;
+}
+
+.btn--again:hover {
+  color: hsl(349, 71%, 52%);
+}
+
+/* *********
+ANIMATIONS
+********* */
 
 @keyframes scaleUp {
   from {
