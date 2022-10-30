@@ -12,7 +12,6 @@ const timerEl = document.querySelector('.element--placeholder');
 const playAgainBox = document.querySelector('.play-again-box');
 const score = document.querySelector('.score-counter');
 
-score.innerHTML = 0;
 let scoreCounter = 0;
 
 const modalHandler = function () {
@@ -62,6 +61,23 @@ const playAgain = function () {
   phase2Box.insertAdjacentHTML('beforeend', markup);
 };
 
+const endgame = function (type) {
+  playAgainBox.insertAdjacentHTML('afterbegin', generateWinMarkup.call(type));
+
+  if (type.includes('win')) {
+    scoreCounter++;
+    phase2Box.firstElementChild.style.boxShadow = `0 0 0 4rem rgba(231, 231, 231, 0.068), 0 0 0 8rem rgba(231, 231, 231, 0.058), 0 0 0 12rem rgba(231, 231, 231, 0.048)`;
+  }
+  if (type.includes('lost')) {
+    scoreCounter--;
+    phase2Box.lastElementChild.style.boxShadow = `0 0 0 4rem rgba(231, 231, 231, 0.068), 0 0 0 8rem rgba(231, 231, 231, 0.058), 0 0 0 12rem rgba(231, 231, 231, 0.048)`;
+  }
+
+  console.log(phase2Box.firstElementChild);
+
+  score.innerHTML = scoreCounter;
+};
+
 const gameLogic = async function (e) {
   if (!e.target.closest('.element')) return;
   const { pick } = e.target.closest('.element').dataset;
@@ -83,15 +99,6 @@ const gameLogic = async function (e) {
   gamePhase2.style.width = '70rem';
 
   await timeout(0.3);
-
-  const endgame = function (type) {
-    playAgainBox.insertAdjacentHTML('afterbegin', generateWinMarkup.call(type));
-
-    if (type.includes('win')) scoreCounter++;
-    if (type.includes('lost')) scoreCounter--;
-
-    score.innerHTML = scoreCounter;
-  };
 
   if (pick === 'paper' && computerPick === 'scissors') endgame('you lost');
   if (pick === 'scissors' && computerPick === 'rock') endgame('you lost');
